@@ -4,6 +4,7 @@ require_relative 'parser'
 begin
 
 puts "Enter URL to process."
+# chomp for "\n" symbols deleting
 url = gets.chomp
 puts "Enter file name."
 name = gets.chomp
