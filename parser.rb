@@ -15,8 +15,8 @@ class Parser
       if @name['.csv']
         puts "Created [#{@name}] file."
       else
-        name = "#{@name}.csv"
-        puts "Notice the lack of an extension. Created [#{@name}.csv] file."
+        @name = "#{@name}.csv"
+        puts "Notice the lack of an extension. Created [#{@name}] file."
       end
     end
   end
