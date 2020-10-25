@@ -118,7 +118,7 @@ class Parser
         csv << [product["n/w"], product["price"], product["img"]]
       end
     end
-    puts "Data writed to #{@name}.csv file."
+    puts "Data writed to #{@name} file."
   end
 
   # main method that combine all parser logic
