@@ -68,7 +68,7 @@ class Parser
       @category_page.xpath('//ul[@id="product_list"]/li').each do |item|
         # taking product URL
         @product_page = get_product_page(item)
-        puts "-Category sub-element loaded-.\nProcessing |#{@product_page.xpath('//h1[@class="product_main_name"]').text} | element."
+        puts "-Category product loaded.-.\nProcessing |#{@product_page.xpath('//h1[@class="product_main_name"]').text} | product."
         parse_subItem
       end
       @pcount += 1
