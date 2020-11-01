@@ -55,7 +55,7 @@ class Parser
   # this method will send boolean if there no other pages in category by..
   # checking page content ("NEXT" button on category page)
   def have_next_page?
-    !@category_page.xpath('//div[@class="content_sortPagiBar"]//li[3]/a/@href').empty?
+    !@category_page.xpath('//*[@id="pagination_next_bottom"]/a').empty?
   end
 
   # main mechanism of products processing. procces of taking each product..
@@ -68,7 +68,7 @@ class Parser
       @category_page.xpath('//ul[@id="product_list"]/li').each do |item|
         # taking product URL
         @product_page = get_product_page(item)
-        puts "-Category product loaded.-.\nProcessing |#{@product_page.xpath('//h1[@class="product_main_name"]').text} | product."
+        puts "-Category product loaded.-\nProcessing |#{@product_page.xpath('//h1[@class="product_main_name"]').text} | product."
         parse_subItem
       end
       @pcount += 1
