@@ -8,8 +8,8 @@ url = gets.chomp
 puts "Enter file name."
 name = gets.chomp
 
-myparser = Parser.new
-myparser.parse_category(url, name)
+myparser = Parser.new(url, name)
+myparser.parse_category
 
 rescue ArgumentError => err
   puts err.message

@@ -4,15 +4,23 @@ require 'curb'
 
 class Parser
 
+  def initialize(name, url)
+    @url = url
+    @name = name
+    @pcount = 1
+    @item_hash = {}
+    @items_list = []
+  end
+
   # validate file name (Forbidden symbols and .csv extension)
   # if user doesn't enter .csv - it will automaticly appears
   def validate_file_name!
-    if @name.match(/[\/\\]/)
+    if @name[/[\/\\]/]
       # catching forbidden linux symbol by regexp using
       # raising error for loop enter cycle
       raise ArgumentError, "Forbidden symbol detected. Try again."
     else
-      if @name['.csv']
+      if @name[/\.csv/]
         puts "Created [#{@name}] file."
       else
         @name = "#{@name}.csv"
@@ -122,12 +130,7 @@ class Parser
   end
 
   # main method that combine all parser logic
-  def parse_category(url, name)
-    @url = url
-    @name = name
-    @pcount = 1
-    @item_hash = {}
-    @items_list = []
+  def parse_category
     validate_url
     validate_file_name!
     processing_category
