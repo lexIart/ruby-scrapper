@@ -112,7 +112,7 @@ class Parser
     # fix name duplicate Acana acana
     pdp_name = @product_page.xpath('//h1[@class="product_main_name"]').text
     extd_part = subitem.xpath('./label/span[@class="radio_label"]').text
-    test
+    
     [pdp_name, extd_part].join(' ')
   end
 
