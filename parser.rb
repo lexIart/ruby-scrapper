@@ -110,7 +110,9 @@ class Parser
   # method that combine name and weight strings in single string
   def get_name(subitem)
     # fix name duplicate Acana acana
-    @product_page.xpath('//h1[@class="product_main_name"]').text + " " + subitem.xpath('./label/span[@class="radio_label"]').text
+    pdp_name = @product_page.xpath('//h1[@class="product_main_name"]').text
+    extd_part = subitem.xpath('./label/span[@class="radio_label"]').text
+    [pdp_name, extd_part].join(' ')
   end
 
   # we need array of hashes for creating CSV file by one step, instead of..
