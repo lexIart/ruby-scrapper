@@ -102,7 +102,7 @@ class Parser
         "price" => subitem.xpath('./label/span[@class="price_comb"]').text,
         "img" => subitem.xpath('//span/img/@src').text
       }
-      push_info_to_array
+      @items_list << @item_hash
       puts "Data variation taked successfully."
     end
   end
@@ -112,14 +112,8 @@ class Parser
     # fix name duplicate Acana acana
     pdp_name = @product_page.xpath('//h1[@class="product_main_name"]').text
     extd_part = subitem.xpath('./label/span[@class="radio_label"]').text
-    test
-    [pdp_name, extd_part].join(' ')
-  end
 
-  # we need array of hashes for creating CSV file by one step, instead of..
-  # opening the stream every time that we getting product attributes variation
-  def push_info_to_array
-    @items_list << @item_hash
+    [pdp_name, extd_part].join(' ')
   end
 
   # writing massive to csv file by single stream opening with iteration using
